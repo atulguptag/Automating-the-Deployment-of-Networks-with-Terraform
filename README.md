@@ -1,5 +1,5 @@
 ## *Lab Name* - Automating the Deployment of Networks with Terraform
 
-### *Lab Link* - https://www.cloudskillsboost.google/focuses/4375?parent=catalog
+### *Lab Link* - <a href="https://www.cloudskillsboost.google/focuses/4375?parent=catalog" target="_blank">Click Here 
 
-### *Lab Solution Link* - https://youtu.be/CbiFLXAZZlQ
+### *Solution Video Link* - <a href="https://youtu.be/CbiFLXAZZlQ" target="_blank">Click Here
