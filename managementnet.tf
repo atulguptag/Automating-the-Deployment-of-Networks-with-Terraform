@@ -7,15 +7,15 @@ resource "google_compute_network" "managementnet" {
 # Create managementsubnet-us subnetwork
 resource "google_compute_subnetwork" "managementsubnet-us" {
   name          = "managementsubnet-us"
-  region        = "us-central1"
-  network       = "${google_compute_network.managementnet.self_link}"
+  region        = "us-east1"
+  network       = google_compute_network.managementnet.self_link
   ip_cidr_range = "10.130.0.0/20"
 }
 
 # Create a firewall rule to allow HTTP, SSH, RDP and ICMP traffic on managementnet
 resource "google_compute_firewall" "managementnet_allow_http_ssh_rdp_icmp" {
   name    = "managementnet-allow-http-ssh-rdp-icmp"
-  network = "${google_compute_network.managementnet.self_link}"
+  network = google_compute_network.managementnet.self_link
 
   source_ranges = ["0.0.0.0/0"]
 
@@ -34,6 +34,6 @@ resource "google_compute_firewall" "managementnet_allow_http_ssh_rdp_icmp" {
 module "managementnet-us-vm" {
   source              = "./instance"
   instance_name       = "managementnet-us-vm"
-  instance_zone       = "us-central1-a"
-  instance_subnetwork = "${google_compute_subnetwork.managementsubnet-us.self_link}"
+  instance_zone       = "us-east1-d"
+  instance_subnetwork = google_compute_subnetwork.managementsubnet-us.self_link
 }
